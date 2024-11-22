@@ -1,10 +1,10 @@
-package com.mycode.personal_project_1;
+package servive_one;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class ServiveOneApplicationTests {
 
 	@Test
 	void contextLoads() {
