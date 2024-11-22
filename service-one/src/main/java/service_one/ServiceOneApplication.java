@@ -1,13 +1,13 @@
-package servive_one;
+package service_one;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiveOneApplication {
+public class ServiceOneApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ServiveOneApplication.class, args);
+		SpringApplication.run(ServiceOneApplication.class, args);
 	}
 
 }
