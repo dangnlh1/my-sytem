@@ -20,4 +20,7 @@ public class HelloController {
     public String workoutTest() {
         return "Hello workout test";
     }
+
+
 }
+

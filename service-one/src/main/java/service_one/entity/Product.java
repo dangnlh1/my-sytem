@@ -14,9 +14,6 @@ public class Product {
     private String madein;
     private float price;
 
-    protected Product() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
