@@ -16,6 +16,13 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
+    @GetMapping({"/product"})
+    public String viewHomePage(Model model) {
+        List<Product> listProducts = service.listAll();
+        model.addAttribute("listProducts", listProducts);
+        return "index";
+    }
+
     @GetMapping("/new")
     public String showNewProductPage(Model model) {
         Product product = new Product();
@@ -23,23 +30,18 @@ public class ProductController {
         return "new_product";
     }
 
-    @GetMapping({"/product", "/"})
-    public String viewHomePage(Model model) {
-        List<Product> listProducts = service.listAll();
-        model.addAttribute("listProducts", listProducts);
-        return "index";
-    }
-
     @PostMapping(value = "/save")
     public String saveProduct(@ModelAttribute("product") Product product) {
         service.save(product);
-        return "redirect:/";
+        return "redirect:/product";
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
+    @GetMapping("/edit/{test}/{testName}")
+    public ModelAndView showEditProductPage(@PathVariable(name = "test") int id,
+                                            @PathVariable(name = "testName") String testName) {
         ModelAndView mav = new ModelAndView("edit_product");
         Product product = service.get(id);
+        System.out.printf(testName);
         mav.addObject("product", product);
         return mav;
     }
