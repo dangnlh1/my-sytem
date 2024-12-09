@@ -1,8 +1,6 @@
 package Study.ioc.use_ioc;
 
-import Study.ioc.no_ioc.DeliveryService;
-import Study.ioc.no_ioc.FastDeliveryService;
-import Study.ioc.no_ioc.OrderProcessor;
+import Study.ioc.no_ioc.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,13 +8,23 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public DeliveryService fastDeliveryService() {
-        return new FastDeliveryService();
+    public DeliveryHistory deliveryHistory() {
+        return new DeliveryHistory();
+    }
+
+    @Bean
+    public DeliveryLogger deliveryLogger() {
+        return new DeliveryLogger();
     }
 
     @Bean
     public OrderProcessor orderProcessor() {
         return new OrderProcessor(fastDeliveryService());
+    }
+
+    @Bean
+    public DeliveryService fastDeliveryService() {
+        return new FastDeliveryService(deliveryHistory(),deliveryLogger());
     }
 
     @Bean

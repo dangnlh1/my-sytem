@@ -4,11 +4,14 @@ public class OrderProcessor {
 
     private DeliveryService deliveryService;
 
+//    public void setDeliveryService(DeliveryService deliveryService) {
+//        this.deliveryService = deliveryService;
+//    }
     public OrderProcessor(DeliveryService deliveryService) {
         this.deliveryService = deliveryService;
     }
 
     public String processOrder(String item) {
-        return "Order processed for: " + item + ". " + deliveryService.deliver(item);
+        return "Order processed for: " + item + ". " + deliveryService.deliver(item) ;
     }
 }

@@ -13,8 +13,12 @@ import java.util.List;
 @Controller
 public class ProductController {
 
-    @Autowired
-    private ProductService service;
+//    @Autowired
+    private final ProductService service;
+
+    public ProductController(ProductService service) {
+        this.service = service;
+    }
 
     @GetMapping({"/product"})
     public String viewHomePage(Model model) {

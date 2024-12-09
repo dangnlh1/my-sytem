@@ -2,18 +2,18 @@ package Study.ioc.no_ioc;
 
 public class MyApp {
     public static void main(String[] args) {
-        // Tạo đối tượng DeliveryService
-        DeliveryService fastDeliveryService = new FastDeliveryService();
 
-        // Inject DeliveryService vào OrderProcessor
+        DeliveryHistory history = new DeliveryHistory();
+        DeliveryLogger deliveryLogger  = new DeliveryLogger();
+        DeliveryService fastDeliveryService = new FastDeliveryService(history,deliveryLogger);
+
         OrderProcessor orderProcessor = new OrderProcessor(fastDeliveryService);
+        String laptop = orderProcessor.processOrder("Laptop");
+        System.out.println(laptop);
 
-        // Xử lý đơn hàng
-        System.out.println(orderProcessor.processOrder("Laptop"));
-
-        // Nếu muốn dùng một dịch vụ khác, bạn phải sửa mã:
-        DeliveryService standardDeliveryService = new StandardDeliveryService();
-        orderProcessor = new OrderProcessor(standardDeliveryService);
-        System.out.println(orderProcessor.processOrder("Smartphone"));
+        StandardDeliveryService standardDeliveryService = new StandardDeliveryService();
+        OrderProcessor orderProcessor2 = new OrderProcessor(standardDeliveryService);
+        String laptop2 = orderProcessor2.processOrder("Laptop2");
+        System.out.println(laptop2);
     }
 }
