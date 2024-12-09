@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 @Transactional
 public class ProductService {
+
     @Autowired
     private ProductRepository repo;
 
@@ -29,4 +30,7 @@ public class ProductService {
     public void delete(long id) {
         repo.deleteById(id);
     }
+
+
+
 }

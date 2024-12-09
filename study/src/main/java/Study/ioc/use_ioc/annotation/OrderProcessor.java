@@ -1,5 +1,9 @@
-package Study.ioc.no_ioc;
+package Study.ioc.use_ioc.annotation;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class OrderProcessor {
 
     private final DeliveryService deliveryService;
@@ -8,7 +12,7 @@ public class OrderProcessor {
 
     private final FeedbackService feedbackService;
 
-    public OrderProcessor(DeliveryService deliveryService, ReceiveService receiveService,FeedbackService feedbackService) {
+    public OrderProcessor(DeliveryService deliveryService, ReceiveService receiveService, FeedbackService feedbackService) {
         this.deliveryService = deliveryService;
         this.receiveService = receiveService;
         this.feedbackService = feedbackService;

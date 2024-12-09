@@ -1,5 +1,9 @@
-package Study.ioc.no_ioc;
+package Study.ioc.use_ioc.annotation;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class FastDeliveryService implements DeliveryService {
     @Override
     public String deliver(String item) {

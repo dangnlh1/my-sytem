@@ -1,4 +1,8 @@
-package Study.ioc.no_ioc;
+package Study.ioc.use_ioc.java_configuration;
+
+
+import org.springframework.stereotype.Component;
+
 
 public class FastDeliveryService implements DeliveryService {
     @Override

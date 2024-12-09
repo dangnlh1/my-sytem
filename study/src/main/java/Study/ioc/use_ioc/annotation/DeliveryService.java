@@ -1,8 +1,7 @@
-package Study.ioc.no_ioc;
+package Study.ioc.use_ioc.annotation;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public interface DeliveryService {
 
     String deliver(String item);
