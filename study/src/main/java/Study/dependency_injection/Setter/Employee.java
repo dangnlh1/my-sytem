@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Employee {
     private Address address;
 
-//    @Autowired // Tự động tiêm qua setter
+//    @Autowired
     public void setAddress(Address address) {
         this.address = address;
     }

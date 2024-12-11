@@ -14,11 +14,16 @@ import java.util.List;
 @Controller
 public class ProductController {
 
+
     private final ProductService service;
 
     public ProductController(ProductService service) {
         this.service = service;
     }
+
+//    public ProductController(ProductService service) {
+//        this.service = service;
+//    }
 
 
     @GetMapping({"/product"})

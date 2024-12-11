@@ -9,7 +9,7 @@ import service_one.repository.ProductRepository;
 import java.util.List;
 
 @Service
-@Transactional
+//@Transactional
 public class ProductService {
 
     @Autowired
