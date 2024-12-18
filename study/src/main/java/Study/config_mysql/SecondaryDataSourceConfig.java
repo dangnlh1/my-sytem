@@ -1,5 +1,6 @@
 package Study.config_mysql;
 
+import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -27,27 +28,28 @@ import java.util.Map;
         entityManagerFactoryRef = "secondaryEntityManagerFactory",
         transactionManagerRef = "secondaryTransactionManager",
         includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = SecondarySchemaRepository.class)
-//        includeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {SecondarySchemaRepository.class})
 )
 public class SecondaryDataSourceConfig {
 
     @Bean(name = "secondaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.secondary")
-    public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
+    public HikariDataSource dataSource() {
+        return DataSourceBuilder
+                .create()
+                .type(HikariDataSource.class)
+                .build();
     }
 
     @Bean(name = "secondaryEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             EntityManagerFactoryBuilder builder,
-            @Qualifier("secondaryDataSource") DataSource dataSource) {
+            @Qualifier("secondaryDataSource") HikariDataSource dataSource) {
 
         Map<String, Object> properties = new HashMap<>();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 
         return builder
                 .dataSource(dataSource)
-//                .packages("Study.config_mysql*")
                 .packages("Study.config_mysql.secondary") // Thư mục chứa entity của DB2
                 .persistenceUnit("secondary")
                 .properties(properties)
