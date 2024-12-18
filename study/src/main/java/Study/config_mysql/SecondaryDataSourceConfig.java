@@ -26,7 +26,8 @@ import java.util.Map;
         basePackages = {"Study.config_mysql.*"},
         entityManagerFactoryRef = "secondaryEntityManagerFactory",
         transactionManagerRef = "secondaryTransactionManager",
-        includeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {SecondarySchemaRepository.class})
+        includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = SecondarySchemaRepository.class)
+//        includeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {SecondarySchemaRepository.class})
 )
 public class SecondaryDataSourceConfig {
 

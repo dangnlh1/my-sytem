@@ -35,10 +35,15 @@ public class StudyApplication {
 		primaryCommonRepository.save(entity1);
 		PrimaryEntity entity2 = new PrimaryEntity();
 		primaryRepository.save(entity2);
+		System.out.println("primary:" + primaryCommonRepository.findAll().size());
+
+
 
 		SecondaryEntity entity3 = new SecondaryEntity();
 		secondaryCommonRepository.save(entity3);
 		SecondaryEntity entity4 = new SecondaryEntity();
 		secondaryRepository.save(entity4);
+		System.out.println("secondary:" + secondaryRepository.findAll().size());
+
 	}
 }

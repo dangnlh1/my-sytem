@@ -6,7 +6,7 @@ import Study.config_mysql.secondary.SecondaryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface SecondaryCommonRepository extends JpaRepository<SecondaryEntity, Long> , SecondarySchemaRepository {
+@SecondarySchemaRepository
+public interface SecondaryCommonRepository extends JpaRepository<SecondaryEntity, Long>  {
 
 }
