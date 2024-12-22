@@ -19,11 +19,11 @@ public class JpaExample {
 
         // Tạo dữ liệu (Create)
         em.getTransaction().begin();
-        Student student1 = new Student(1L,"Nguyen Van", "Test" , "nguyenvana@gmail.com");
+        Student student1 = new Student(1L,"Nguyen Van", "Test1" , "nguyenvana@gmail.com");
 
 //        Student student1 = new Student("Nguyen Van", "A" , "nguyenvana@gmail.com");
 //        Student student2 = new Student( "Nguyen Van", "B" , "nguyenvanb@gmail.com");
-        em.persist(student1);
+          em.merge(student1);
 //        em.persist(student2);
         em.getTransaction().commit();
 
